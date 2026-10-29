@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Enforce crisp light parchment background in light mode */
+html:not(.dark),
+html:not(.dark) body,
+html:not(.dark) #root {
+  background-color: #FAF8F5 !important;
+  color: #1C1917 !important;
+}
+
+/* Enforce deep obsidian midnight background in dark mode */
+html.dark,
+html.dark body,
+html.dark #root {
+  background-color: #070B14 !important;
+  color: #F8FAFC !important;
+}
+
+/* Tooltip transition smoothness */
+.visx-tooltip {
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+/* Luxury Gold Shimmer */
+@keyframes goldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 8s linear infinite;
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.dark .gold-border-glow {
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.25);
+}
